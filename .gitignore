@@ -1,0 +1,14 @@
+.bash_history
+.bashrc
+.cache/
+.gitconfig
+.ipython/
+.jupyter/
+.keras/
+.local/
+.profile
+
+*.csv
+*.tar
+*.tar.gz
+*.zip
