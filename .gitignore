@@ -1,5 +1,6 @@
 .bash_history
 .bashrc
+.viminfo
 .cache/
 .gitconfig
 .ipython/
