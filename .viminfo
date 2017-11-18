@@ -8,8 +8,9 @@
 # hlsearch on (H) or off (h):
 ~h
 # Command Line History (newest to oldest):
-:q
+:quit
 :w
+:q
 :u
 :Q
 :E
@@ -19,7 +20,6 @@
 :
 :help]
 :T
-:quit
 
 # Search String History (newest to oldest):
 
@@ -30,24 +30,27 @@
 # Input Line History (newest to oldest):
 
 # Registers:
-""1	LINE	0
-	        Flatten(),
-"2	LINE	0
+""1	CHAR	0
+	 (b-a) / (a + b)
+	
+"2	CHAR	0
+	 # For binary classification, change the activation to 'sigmoid'
 	
 "3	LINE	0
-	file_path = '~/data/bitstampUSD_1-min_data_2012-01-01_to_2017-05-31.csv'
+	        MaxPooling1D(),
 "4	LINE	0
-	
+		Conv1D(filters=nb_filter, kernel_size=filter_length, activation='relu'),
 "5	LINE	0
+	    return model
 	
 "6	LINE	0
-	
+	# path to the csv file 
 "7	LINE	0
-	
+	file_path = '~/data/bitstampUSD_1-min_data_2012-01-01_to_2017-05-31.csv'
 "8	LINE	0
 	
 "9	LINE	0
-		
+	# data prepration
 "q	CHAR	0
 	]\\
 "u	CHAR	0
@@ -56,13 +59,57 @@
 	s
 
 # File marks:
-'0  46  0  ~/notebooks/Conv_1D.py
-'1  83  14  ~/notebooks/Conv_1D.py
-'2  76  16  ~/notebooks/Conv_1D.py
-'3  19  0  ~/notebooks/Conv_1D.py
-'4  1  0  ~/notebooks/Conv_1D.py
+'0  45  201  ~/src/model_conv_1d.py
+'1  44  3  ~/src/model_conv_1d.py
+'2  46  0  ~/notebooks/Conv_1D.py
+'3  83  14  ~/notebooks/Conv_1D.py
+'4  76  16  ~/notebooks/Conv_1D.py
+'5  19  0  ~/notebooks/Conv_1D.py
+'6  1  0  ~/notebooks/Conv_1D.py
 
 # Jumplist (newest first):
+-'  45  201  ~/src/model_conv_1d.py
+-'  1  0  ~/src/model_conv_1d.py
+-'  44  3  ~/src/model_conv_1d.py
+-'  46  0  ~/notebooks/Conv_1D.py
+-'  1  0  ~/notebooks/Conv_1D.py
+-'  83  14  ~/notebooks/Conv_1D.py
+-'  13  11  ~/notebooks/Conv_1D.py
+-'  76  16  ~/notebooks/Conv_1D.py
+-'  19  0  ~/notebooks/Conv_1D.py
+-'  93  0  ~/notebooks/Conv_1D.py
+-'  25  0  ~/notebooks/Conv_1D.py
+-'  92  0  ~/notebooks/Conv_1D.py
+-'  81  14  ~/notebooks/Conv_1D.py
+-'  74  16  ~/notebooks/Conv_1D.py
+-'  91  0  ~/notebooks/Conv_1D.py
+-'  90  0  ~/notebooks/Conv_1D.py
+-'  46  0  ~/notebooks/Conv_1D.py
+-'  1  0  ~/notebooks/Conv_1D.py
+-'  83  14  ~/notebooks/Conv_1D.py
+-'  13  11  ~/notebooks/Conv_1D.py
+-'  76  16  ~/notebooks/Conv_1D.py
+-'  19  0  ~/notebooks/Conv_1D.py
+-'  93  0  ~/notebooks/Conv_1D.py
+-'  25  0  ~/notebooks/Conv_1D.py
+-'  92  0  ~/notebooks/Conv_1D.py
+-'  81  14  ~/notebooks/Conv_1D.py
+-'  74  16  ~/notebooks/Conv_1D.py
+-'  91  0  ~/notebooks/Conv_1D.py
+-'  90  0  ~/notebooks/Conv_1D.py
+-'  46  0  ~/notebooks/Conv_1D.py
+-'  1  0  ~/notebooks/Conv_1D.py
+-'  83  14  ~/notebooks/Conv_1D.py
+-'  13  11  ~/notebooks/Conv_1D.py
+-'  76  16  ~/notebooks/Conv_1D.py
+-'  19  0  ~/notebooks/Conv_1D.py
+-'  93  0  ~/notebooks/Conv_1D.py
+-'  25  0  ~/notebooks/Conv_1D.py
+-'  92  0  ~/notebooks/Conv_1D.py
+-'  81  14  ~/notebooks/Conv_1D.py
+-'  74  16  ~/notebooks/Conv_1D.py
+-'  91  0  ~/notebooks/Conv_1D.py
+-'  90  0  ~/notebooks/Conv_1D.py
 -'  46  0  ~/notebooks/Conv_1D.py
 -'  1  0  ~/notebooks/Conv_1D.py
 -'  83  14  ~/notebooks/Conv_1D.py
@@ -78,6 +125,58 @@
 -'  90  0  ~/notebooks/Conv_1D.py
 
 # History of marks within files (newest to oldest):
+
+> ~/src/model_conv_1d.py
+	"	45	201
+	^	45	202
+	.	45	201
+	+	5	0
+	+	48	0
+	+	41	17
+	+	43	108
+	+	48	0
+	+	43	108
+	+	43	111
+	+	43	105
+	+	47	0
+	+	36	104
+	+	37	0
+	+	38	1
+	+	39	1
+	+	40	1
+	+	41	1
+	+	42	1
+	+	41	16
+	+	43	1
+	+	44	0
+	+	43	42
+	+	44	26
+	+	34	39
+	+	44	21
+	+	34	7
+	+	44	23
+	+	46	12
+	+	43	40
+	+	44	3
+	+	34	22
+	+	31	67
+	+	35	0
+	+	34	25
+	+	34	38
+	+	34	7
+	+	35	0
+	+	32	8
+	+	45	23
+	+	31	7
+	+	32	9
+	+	34	25
+	+	45	23
+	+	34	12
+	+	32	7
+	+	31	64
+	+	45	58
+	+	32	85
+	+	45	201
 
 > ~/notebooks/Conv_1D.py
 	"	46	0
