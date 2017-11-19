@@ -39,14 +39,14 @@ def env (actions, transaction_fee, current_state, previous_state): 	# if actions
 	action = actions[0] + actions[1]				# with probability of their value. 
 	
 	if action * current_state[3] > transaction_fee * current_state[0]: # current_state[0] is the price st the time
-		current_state[2] = current_state[2] + ((action * current_state[3] / current_state[0])  - transaction_fee) # let's say idx 2 of current_state is btc_balance,
-		current_state[3] = current_state[3] - (action * current_state[3]) - (transaction_fee * current_state[0])
+		current_state[2] = current_state[2] + (action * current_state[3] / current_state[0]  - transaction_fee) # let's say idx 2 of current_state is btc_balance,
+		current_state[3] = current_state[3] - action * current_state[3] - transaction_fee * current_state[0]
 		current_state[4] = current_state[3] + current_state[2] * current_state[0]
 		return current_state
 
 	elif (action * current_state[2] * -1) > transaction_fee:
 		current_state[2] = current_state[2] - (action * current_state[2])
-		current_state[3] = current_state[3] + ((action * current_state[2]) - transaction_fee)) * current_state[0]
+		current_state[3] = current_state[3] + (action * current_state[2] - transaction_fee * current_state[0])
 		current_state[4] = current_state[3] + current_state[2] * current_state[0]
 		return current_state
 	else:
