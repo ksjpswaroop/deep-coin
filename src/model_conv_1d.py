@@ -46,8 +46,8 @@ def env (actions, transaction_fee, current_state, previous_state): 	# if actions
 
 	elif (action * current_state[2] * -1) > transaction_fee:
 		current_state[2] = current_state[2] - (action * current_state[2])
-                current_state[3] = current_state[3] + ((action * current_state[2]) - transaction_fee)) * current_state[0]
-                current_state[4] = current_state[3] + current_state[2] * current_state[0]
+		current_state[3] = current_state[3] + ((action * current_state[2]) - transaction_fee)) * current_state[0]
+		current_state[4] = current_state[3] + current_state[2] * current_state[0]
 		return current_state
 	else:
 		return current_state
