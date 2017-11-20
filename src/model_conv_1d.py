@@ -17,7 +17,6 @@ from keras.layers import Conv1D, Dense, MaxPooling1D, Flatten
 from keras.models import Sequential
 
 
-
 # Data prepration
 def load_data(file_path, drop_na=True, utc_time=True):
 	"""this function will load the csv data file into a panda dataframe and converts the date-time to utc standard if True and returns the df"""
@@ -34,23 +33,23 @@ def loss (a, b): # b=current value of portfolio, a=previous state's value of por
 	return -1 * ((b-a) / (a + b))
 
 # environment gets the output of policy network and returns reward and the next observation
-def env (actions, transaction_fee, current_state, previous_state): 	# if actions is a 2x1 matrix, lets say index 0 is buy signal and index 1 is sell signal 
+def env (sate, actions, fee=transaction_fee): 	# if actions is a 2x1 matrix, lets say index 0 is buy signal and index 1 is sell signal 
 	
-	action = actions[0] + actions[1]				# with probability of their value. 
+	action = actions[0] + actions[1]	# with probability of their value. 
 	
-	if action * current_state[3] > transaction_fee * current_state[0]: # current_state[0] is the price st the time
-		current_state[2] = current_state[2] + (action * current_state[3] / current_state[0]  - transaction_fee) # let's say idx 2 of current_state is btc_balance,
-		current_state[3] = current_state[3] - action * current_state[3] - transaction_fee * current_state[0]
-		current_state[4] = current_state[3] + current_state[2] * current_state[0]
-		return current_state
+	if action * state[3] > transaction_fee * state[0]: # current_state[0] is the price st the time
+		state[2] = state[2] + (action * state[3] / state[0]  - fee) # let's say idx 2 of current_state is btc_balance,
+		state[3] = state[3] - action * state[3] - fee * state[0]
+		state[4] = state[3] + state[2] * state[0]
+		return state
 
-	elif (action * current_state[2] * -1) > transaction_fee:
-		current_state[2] = current_state[2] - (action * current_state[2])
-		current_state[3] = current_state[3] + (action * current_state[2] - transaction_fee * current_state[0])
-		current_state[4] = current_state[3] + current_state[2] * current_state[0]
-		return current_state
+	elif (action * state[2] * -1) > fee:
+		state[2] = state[2] - (action * state[2])
+		state[3] = state[3] + (action * state[2] - fee * state[0])
+		state[4] = state[3] + state[2] * state[0]
+		return state
 	else:
-		return current_state
+		return state
 		
 		  
 # convolutional 1D model with 2 convolutional layers, 2 maxpooling, 1 flatten and 1 dense network

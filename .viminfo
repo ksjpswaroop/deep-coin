@@ -8,10 +8,13 @@
 # hlsearch on (H) or off (h):
 ~h
 # Command Line History (newest to oldest):
-:quit
-:w
+:q!
 :q
+:U
 :u
+:w
+:w!
+:quit
 :Q
 :E
 :W
@@ -30,47 +33,56 @@
 # Input Line History (newest to oldest):
 
 # Registers:
-""1	CHAR	0
+""1	LINE	0
+			current_state[2] = current_state[2] + (action * current_state[3] / current_state[0]  - transaction_fee) # let's say idx 2 of current_state is btc_balance,
+			current_state[3] = current_state[3] - action * current_state[3] - transaction_fee * current_state[0]
+			current_state[4] = current_state[3] + current_state[2] * current_state[0]
+			return current_state
+"2	LINE	0
+				# with probability of their value. 
+"3	LINE	0
+				# with probability of their value. 
+"4	CHAR	0
 	 (b-a) / (a + b)
 	
-"2	CHAR	0
+"5	CHAR	0
 	 # For binary classification, change the activation to 'sigmoid'
 	
-"3	LINE	0
+"6	LINE	0
 	        MaxPooling1D(),
-"4	LINE	0
+"7	LINE	0
 		Conv1D(filters=nb_filter, kernel_size=filter_length, activation='relu'),
-"5	LINE	0
+"8	LINE	0
 	    return model
 	
-"6	LINE	0
-	# path to the csv file 
-"7	LINE	0
-	file_path = '~/data/bitstampUSD_1-min_data_2012-01-01_to_2017-05-31.csv'
-"8	LINE	0
-	
 "9	LINE	0
-	# data prepration
+	# path to the csv file 
 "q	CHAR	0
 	]\\
 "u	CHAR	0
 	it€kbquit€kb€kb€kb€kb€kb€kb€kb
 "-	CHAR	0
-	s
+	with probability of their value
 
 # File marks:
-'0  45  201  ~/src/model_conv_1d.py
-'1  44  3  ~/src/model_conv_1d.py
-'2  46  0  ~/notebooks/Conv_1D.py
-'3  83  14  ~/notebooks/Conv_1D.py
-'4  76  16  ~/notebooks/Conv_1D.py
-'5  19  0  ~/notebooks/Conv_1D.py
-'6  1  0  ~/notebooks/Conv_1D.py
+'0  31  17  ~/src/model_conv_1d.py
+'1  54  0  ~/src/model_conv_1d.py
+'2  57  1  ~/src/model_conv_1d.py
+'3  69  201  ~/src/model_conv_1d.py
+'4  68  3  ~/src/model_conv_1d.py
+'5  46  0  ~/notebooks/Conv_1D.py
+'6  83  14  ~/notebooks/Conv_1D.py
+'7  76  16  ~/notebooks/Conv_1D.py
+'8  19  0  ~/notebooks/Conv_1D.py
+'9  1  0  ~/notebooks/Conv_1D.py
 
 # Jumplist (newest first):
--'  45  201  ~/src/model_conv_1d.py
+-'  31  17  ~/src/model_conv_1d.py
 -'  1  0  ~/src/model_conv_1d.py
--'  44  3  ~/src/model_conv_1d.py
+-'  54  0  ~/src/model_conv_1d.py
+-'  57  1  ~/src/model_conv_1d.py
+-'  69  201  ~/src/model_conv_1d.py
+-'  68  3  ~/src/model_conv_1d.py
 -'  46  0  ~/notebooks/Conv_1D.py
 -'  1  0  ~/notebooks/Conv_1D.py
 -'  83  14  ~/notebooks/Conv_1D.py
@@ -123,60 +135,152 @@
 -'  74  16  ~/notebooks/Conv_1D.py
 -'  91  0  ~/notebooks/Conv_1D.py
 -'  90  0  ~/notebooks/Conv_1D.py
+-'  52  201  ~/src/model_conv_1d.py
+-'  51  3  ~/src/model_conv_1d.py
+-'  46  0  ~/notebooks/Conv_1D.py
+-'  1  0  ~/notebooks/Conv_1D.py
+-'  83  14  ~/notebooks/Conv_1D.py
+-'  13  11  ~/notebooks/Conv_1D.py
+-'  76  16  ~/notebooks/Conv_1D.py
+-'  19  0  ~/notebooks/Conv_1D.py
+-'  93  0  ~/notebooks/Conv_1D.py
+-'  25  0  ~/notebooks/Conv_1D.py
+-'  92  0  ~/notebooks/Conv_1D.py
+-'  81  14  ~/notebooks/Conv_1D.py
+-'  74  16  ~/notebooks/Conv_1D.py
+-'  91  0  ~/notebooks/Conv_1D.py
+-'  90  0  ~/notebooks/Conv_1D.py
+-'  46  0  ~/notebooks/Conv_1D.py
+-'  1  0  ~/notebooks/Conv_1D.py
+-'  83  14  ~/notebooks/Conv_1D.py
+-'  13  11  ~/notebooks/Conv_1D.py
+-'  76  16  ~/notebooks/Conv_1D.py
+-'  19  0  ~/notebooks/Conv_1D.py
+-'  93  0  ~/notebooks/Conv_1D.py
+-'  25  0  ~/notebooks/Conv_1D.py
+-'  92  0  ~/notebooks/Conv_1D.py
+-'  81  14  ~/notebooks/Conv_1D.py
+-'  74  16  ~/notebooks/Conv_1D.py
+-'  91  0  ~/notebooks/Conv_1D.py
+-'  90  0  ~/notebooks/Conv_1D.py
+-'  46  0  ~/notebooks/Conv_1D.py
+-'  1  0  ~/notebooks/Conv_1D.py
+-'  83  14  ~/notebooks/Conv_1D.py
+-'  13  11  ~/notebooks/Conv_1D.py
+-'  76  16  ~/notebooks/Conv_1D.py
+-'  19  0  ~/notebooks/Conv_1D.py
+-'  93  0  ~/notebooks/Conv_1D.py
+-'  25  0  ~/notebooks/Conv_1D.py
+-'  92  0  ~/notebooks/Conv_1D.py
+-'  81  14  ~/notebooks/Conv_1D.py
+-'  74  16  ~/notebooks/Conv_1D.py
 
 # History of marks within files (newest to oldest):
 
 > ~/src/model_conv_1d.py
-	"	45	201
-	^	45	202
-	.	45	201
-	+	5	0
-	+	48	0
-	+	41	17
-	+	43	108
-	+	48	0
-	+	43	108
-	+	43	111
-	+	43	105
+	"	31	17
+	^	31	9
+	.	31	0
+	+	66	1
+	+	65	16
+	+	67	1
+	+	68	0
+	+	67	42
+	+	68	26
+	+	41	39
+	+	68	21
+	+	41	7
+	+	68	23
+	+	70	12
+	+	67	40
+	+	68	3
+	+	41	22
+	+	38	67
+	+	59	0
+	+	41	25
+	+	41	38
+	+	41	7
+	+	59	0
+	+	39	8
+	+	69	23
+	+	38	7
+	+	39	9
+	+	41	25
+	+	69	23
+	+	41	12
+	+	39	7
+	+	38	64
+	+	69	58
+	+	39	85
+	+	69	201
+	+	43	91
+	+	45	0
+	+	44	7
+	+	45	25
+	+	54	4
+	+	54	0
+	+	50	1
+	+	44	154
+	+	45	38
+	+	44	67
+	+	45	1
 	+	47	0
-	+	36	104
-	+	37	0
-	+	38	1
-	+	39	1
-	+	40	1
-	+	41	1
-	+	42	1
-	+	41	16
-	+	43	1
-	+	44	0
-	+	43	42
-	+	44	26
-	+	34	39
-	+	44	21
-	+	34	7
-	+	44	23
-	+	46	12
-	+	43	40
-	+	44	3
-	+	34	22
-	+	31	67
-	+	35	0
-	+	34	25
-	+	34	38
-	+	34	7
-	+	35	0
-	+	32	8
-	+	45	23
-	+	31	7
-	+	32	9
-	+	34	25
-	+	45	23
-	+	34	12
-	+	32	7
-	+	31	64
-	+	45	58
-	+	32	85
-	+	45	201
+	+	45	32
+	+	47	15
+	+	50	0
+	+	50	0
+	+	45	33
+	+	45	37
+	+	49	1
+	+	47	27
+	+	49	82
+	+	47	26
+	+	50	20
+	+	47	106
+	+	49	83
+	+	50	101
+	+	49	107
+	+	50	105
+	+	49	40
+	+	51	75
+	+	54	1
+	+	58	1
+	+	54	57
+	+	54	2
+	+	54	89
+	+	54	56
+	+	54	65
+	+	54	67
+	+	54	121
+	+	51	40
+	+	54	89
+	+	57	1
+	+	52	22
+	+	54	21
+	+	56	21
+	+	48	0
+	+	46	0
+	+	54	1
+	+	54	1
+	+	54	1
+	+	54	1
+	+	54	103
+	+	50	40
+	+	49	41
+	+	46	27
+	+	26	0
+	+	23	4
+	+	26	27
+	+	54	0
+	+	28	0
+	+	26	30
+	+	18	0
+	+	19	22
+	+	26	21
+	+	28	57
+	+	29	50
+	+	30	35
+	+	31	0
 
 > ~/notebooks/Conv_1D.py
 	"	46	0
