@@ -28,16 +28,16 @@ def load_data(file_path, drop_na=True, utc_time=True):
 	return df
 
 # loss function returns  value between -1 and 1 for gain or loss.
-def get_loss (x, y): # y=current value of portfolio, x=previous state's value of portfolio
+def loss (x, y): # y=current value of portfolio, x=previous state's value of portfolio
 	"""it will calculate the diffrence between portfolio value at state a and b"""
 	return -1 * ((y - x) / (x + y))
 
 # environment gets the output of policy network and returns reward and the next observation
-def env (sate, actions, fee=transaction_fee): 	# if actions is a 2x1 matrix, lets say index 0 is buy signal and index 1 is sell signal 
+def env (sate, actions, fee): 	# if actions is a 2x1 matrix, lets say index 0 is buy signal and index 1 is sell signal 
 	
 	action = actions[0] + actions[1]	# with probability of their value. 
 	
-	if action * state[3] > transaction_fee * state[0]: # current_state[0] is the price st the time
+	if action * state[3] > fee * state[0]: # current_state[0] is the price st the time
 		state[2] = state[2] + (action * state[3] / state[0]  - fee) # let's say idx 2 of current_state is btc_balance,
 		state[3] = state[3] - action * state[3] - fee * state[0]
 		state[4] = state[3] + state[2] * state[0]
