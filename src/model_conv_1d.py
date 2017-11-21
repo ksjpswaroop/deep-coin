@@ -27,10 +27,10 @@ def load_data(file_path, drop_na=True, utc_time=True):
 		df.index = pd.to_datetime(df.index, utc=True, unit='s')
 	return df
 
-# loss function returns a value between -1 and 1 for gain or loss.
-def loss (a, b): # b=current value of portfolio, a=previous state's value of portfolio
+# loss function returns  value between -1 and 1 for gain or loss.
+def get_loss (x, y): # y=current value of portfolio, x=previous state's value of portfolio
 	"""it will calculate the diffrence between portfolio value at state a and b"""
-	return -1 * ((b-a) / (a + b))
+	return -1 * ((y - x) / (x + y))
 
 # environment gets the output of policy network and returns reward and the next observation
 def env (sate, actions, fee=transaction_fee): 	# if actions is a 2x1 matrix, lets say index 0 is buy signal and index 1 is sell signal 
