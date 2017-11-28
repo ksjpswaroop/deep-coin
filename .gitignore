@@ -9,7 +9,9 @@
 .local/
 .profile
 /notebooks/ipynb_checkpoints/
-
+/data/
+*.pkl
+.git-credentials
 *.csv
 *.tar
 *.tar.gz
